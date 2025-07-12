@@ -1,0 +1,22 @@
+{% extends "elder_services/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h4>Add services details</h4>
+<form method="post" autocomplete="off">
+    {% csrf_token %}
+    {{form.service_id|as_crispy_field}}
+    {{form.service_name|as_crispy_field}}
+    <button type="submit" class="btn btn-success"><i class="bi bi-download"></i>
+        Save Button
+    </button>
+    <a href="{%url 'services_list'%}" class="btn btn-secondary btn-block btn-lg">
+        <i class="bi bi-back"></i> Services List </a>
+    <hr>
+    <div>
+        <a href="{%url 'subservices_list'%}" class="btn btn-secondary btn-block btn-lg">
+            <i class="bi bi-back"></i>Go to Subservices List </a>
+    
+    </div>
+
+</form>
+{% endblock content %}

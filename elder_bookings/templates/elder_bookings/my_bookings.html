@@ -1,0 +1,83 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<style>
+  .booking-section {
+    background-color: #fff;
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .booking-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+
+  .table thead {
+    background-color: #f8f9fa;
+  }
+
+  .table th {
+    font-weight: 600;
+    color: #555;
+  }
+
+  .table td {
+    color: #444;
+    vertical-align: middle;
+  }
+
+  .no-bookings-msg {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #777;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .booking-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<div class="container booking-section">
+  <h2 class="booking-title">My Bookings</h2>
+
+  {% if bookings %}
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Sub-Service</th>
+            <th>Booking Date & Time</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in bookings %}
+            <tr>
+              <td>{{ booking.service_id.service_name }}</td>
+              <td>{{ booking.subservice_id.subservice_name }}</td>
+              <td>{{ booking.booking_time|date:"D, d M Y H:i" }}</td>
+              <td>₹{{ booking.price }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="no-bookings-msg">You haven't booked any services yet.</p>
+  {% endif %}
+  <a href="{%url 'get_service'%}" class="btn btn-secondary btn-block btn-lg">
+            <i class="bi bi-back"></i>Book More Services </a>
+</div>
+
+{% endblock %}

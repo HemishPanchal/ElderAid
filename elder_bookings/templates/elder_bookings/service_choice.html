@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .booked-service-btn {
+        display: inline-flex;
+        align-items: center;
+        background-color: #ffffff;
+        border: 2px solid #0dcaf0;
+        color: #0dcaf0;
+        padding: 8px 16px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-size: 1rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        color:black;
+    }
+
+    .booked-service-btn:hover {
+        background-color: #e6faff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        text-decoration: none;
+    }
+
+    .booked-service-btn i {
+        margin-right: 8px;
+    }
+</style>
+
+<div class="service-section py-5">
+    <h2 class="display-5 fw-bold text-center text-white mb-5 heading-underline">
+        Choose a Service
+    </h2>
+
+    <div class="container">
+        <div class="row g-4">
+            {% for ser in services_list %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm h-100 border-0">
+                    <div class="card-body bg-dark text-white d-flex flex-column justify-content-between">
+                        <h5 class="card-title text-info">{{ ser.service_name }}</h5>
+                        <a href="{% url 'get_subservice' ser.id %}" class="btn btn-outline-info mt-3">View
+                            Subservices</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<a href="{% url 'my_bookings' %}"
+    class="btn btn-sm btn-outline-info d-inline-flex align-items-center booked-service-btn ms-2">
+    <i class="fas fa-calendar-check me-1"></i> Booked Services
+</a>
+
+{% endblock content %}

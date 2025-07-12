@@ -1,0 +1,48 @@
+{% extends "elder_subservices/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h4>Add Subservices details</h4>
+<form method="post" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.service_id|as_crispy_field}}
+    {{form.subservice_id|as_crispy_field}}
+    {{form.subservice_name|as_crispy_field}}
+    {{form.price|as_crispy_field}}
+    {{form.image|as_crispy_field}}
+    <br>
+    <img id="previewImage" src="#" alt="Image Preview"
+        style="display:none; width: 50%; height: 50%; margin-top: 10px; border: 1px solid #ccc; padding: 5px;">
+
+    <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fa fa-database" aria-hidden="true"></i>
+        Save Form</button>
+    <a href="{%url 'subservices_list'%}" class="btn btn-secondary btn-block btn-lg">
+        <i class="bi bi-back"></i> Subservices List </a>
+    <hr>
+    <div>
+        <a href="{%url 'services_list'%}" class="btn btn-secondary btn-block btn-lg">
+            <i class="bi bi-back"></i>Go to Services List </a>
+</form>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const fileInput = document.querySelector('input[type="file"]');
+        const previewImage = document.getElementById('previewImage');
+
+        fileInput.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                previewImage.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+{% endblock content %}

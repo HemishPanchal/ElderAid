@@ -1,0 +1,115 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+  .tm-special-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Two columns */
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+
+
+  .tm-special-item {
+    background-color: #111;
+    color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 320px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .tm-special-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .tm-special-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .tm-special-item-description {
+    padding: 1rem;
+  }
+
+  .tm-special-item-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .tm-special-item-text {
+    font-size: 0.95rem;
+    color: #ccc;
+  }
+
+  @media (max-width: 768px) {
+  .tm-special-items {
+    grid-template-columns: 1fr; /* Stack items vertically on small screens */
+  }
+}
+
+</style>
+
+<!-- Wellness Add-ons Page -->
+<div id="wellness" class="tm-page-content">
+  <div class="tm-special-items">
+
+    <div class="tm-black-bg tm-special-item">
+      <img src="{% static 'img/nutrition-plan.jpg' %}" alt="Nutrition Plan">
+      <div class="tm-special-item-description">
+        <h2 class="tm-text-primary tm-special-item-title">Personalized Nutrition Plan</h2>
+        <p class="tm-special-item-text">Custom diet plans designed by certified dietitians to support elderly health
+          conditions like diabetes and hypertension.</p>
+      </div>
+    </div>
+
+    <div class="tm-black-bg tm-special-item">
+      <img src="{% static 'img/mental-health.jpg' %}" alt="Mental Wellness">
+      <div class="tm-special-item-description">
+        <h2 class="tm-text-primary tm-special-item-title">Mental Wellness Sessions</h2>
+        <p class="tm-special-item-text">Weekly meditation, counselling, and therapy sessions to ensure emotional
+          well-being and reduce loneliness.</p>
+      </div>
+    </div>
+
+    <div class="tm-black-bg tm-special-item">
+      <img src="{% static 'img/tech-gadgets.jpg' %}" alt="Tech Gadgets">
+      <div class="tm-special-item-description">
+        <h2 class="tm-text-primary tm-special-item-title">Senior-Friendly Gadgets</h2>
+        <p class="tm-special-item-text">Preconfigured smartwatches, voice assistants, and medical alert devices designed
+          for elderly comfort and safety.</p>
+      </div>
+    </div>
+
+    <div class="tm-black-bg tm-special-item">
+      <img src="{% static 'img/activity-kits.jpg' %}" alt="Activity Kits">
+      <div class="tm-special-item-description">
+        <h2 class="tm-text-primary tm-special-item-title">Cognitive Activity Kits</h2>
+        <p class="tm-special-item-text">Puzzle books, games, and memory exercises to keep the mind active and promote
+          joyful engagement.</p>
+      </div>
+    </div>
+
+    <div class="tm-black-bg tm-special-item">
+      <img src="{% static 'img/emergency-kit.jpg' %}" alt="Emergency Kit">
+      <div class="tm-special-item-description">
+        <h2 class="tm-text-primary tm-special-item-title">Emergency Aid Kit</h2>
+        <p class="tm-special-item-text">Pre-packed medical and contact kits for seniors to use during any emergency
+          situation.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- end Wellness Add-ons Page -->
+
+{% endblock %}

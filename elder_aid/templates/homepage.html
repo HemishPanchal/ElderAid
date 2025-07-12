@@ -1,0 +1,89 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+ 
+<style>
+  .hero-section {
+    background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+ 
+  .hero-text h1 {
+    font-weight: 700;
+    color: #0077b6;
+  }
+ 
+  .hero-text p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+ 
+  .feature-icon {
+    font-size: 2rem;
+    color: #0d6efd;
+  }
+ 
+  .feature {
+    padding: 1.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.75rem;
+    background-color: white;
+    transition: transform 0.3s;
+  }
+ 
+  .feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  }
+</style>
+ 
+<div class="container my-5">
+  <div class="hero-section text-center">
+    <div class="hero-text mb-4">
+      <h1 class="display-5">Welcome to ElderAid Services</h1>
+      <p>
+        Compassionate, trusted care for the ones who cared for us.<br>
+        From home support to medical coordination, we bring dignity, ease, and peace of mind to every stage of elder life.
+      </p>
+    </div>
+    <a href="{% url 'login_page' %}" class="btn btn-primary btn-lg px-4">
+      <i class="bi bi-person-fill"></i> Login to Get Started
+    </a>
+  </div>
+ 
+  <hr class="my-5">
+ 
+  <div class="row text-center g-4">
+    <div class="col-md-4">
+      <div class="feature h-100">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-heart-pulse"></i>
+        </div>
+        <h5>Health Monitoring</h5>
+        <p>Regular health check-ups, medication reminders, and wellness tracking by certified caregivers.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature h-100">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-house-door"></i>
+        </div>
+        <h5>In-Home Services</h5>
+        <p>From housekeeping to meals and mobility aid, we ensure elders feel safe and independent at home.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature h-100">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-chat-left-heart"></i>
+        </div>
+        <h5>Emotional Support</h5>
+        <p>We offer companionship, mental health support, and engaging activities to reduce loneliness and isolation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<div id="about" class="tm-page-content">
+  <div class="tm-black-bg tm-mb-20 tm-about-box-1">              
+    <h2 class="tm-text-primary tm-about-header">About Elder Aid</h2>
+    <div class="tm-list-item tm-list-item-2">                
+      <img src="{% static 'img/img_1_sq.jpg' %}" alt="Elder Aid Image" class="tm-list-item-img tm-list-item-img-big">
+      <div class="tm-list-item-text-2">
+        <p><strong>Elder Aid</strong> is dedicated to improving the quality of life for senior citizens by offering a wide range of personalized support services. From daily care assistance to companionship and health-related services, we focus on enabling elders to live independently with dignity.</p>
+        <p>We bridge the gap between families and their aging loved ones through trustworthy, compassionate care and reliable service delivery.</p>
+      </div>                
+    </div>
+  </div>
+
+  <div class="tm-black-bg tm-mb-20 tm-about-box-2">              
+    <div class="tm-list-item tm-list-item-2">                
+      <div class="tm-list-item-text-2">
+        <h2 class="tm-text-primary">Our Journey</h2>
+        <p>Elder Aid began with a simple mission — to provide elders with the support they need, when they need it. What started as a local initiative has now grown into a trusted community network, helping hundreds of families ensure safety and happiness for their elderly members.</p>                  
+      </div>                
+      <img src="{% static 'img/img_4_sq.jpg' %}" alt="Elder Support" class="tm-list-item-img tm-list-item-img-big tm-img-right">                
+    </div>
+    <p>We continuously adapt and innovate to meet the evolving needs of our aging population, with services ranging from in-home care to health monitoring and emergency support — all tailored to promote well-being, respect, and a sense of belonging.</p>
+  </div>
+</div>
+
+{% endblock %}
