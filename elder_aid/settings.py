@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +49,32 @@ INSTALLED_APPS = [
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-
+JAZZMIN_SETTINGS = {
+    "custom_links": {
+            "elder_services": [{
+            "name": "📊 Booking Analytics",
+            "url": "/admin/dashboard/",
+            "icon": "fas fa-chart-bar",
+        }]
+    },
+ 
+    "icons": {
+        "elder_services.services": "fas fa-hands-helping",
+    },
+    "model_icons": {
+        "services": "fas fa-hands-helping",
+    },
+    "hide_models": [],
+    "order_with_respect_to": ["elder_services"],
+ 
+    "show_sidebar": True,
+    "related_modal_active": False,
+ 
+    "site_title": "ElderAid Admin",
+    "site_header": "ElderAid",
+    "site_brand": "ElderAid",
+    "site_logo_classes": "img-circle",
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -129,10 +155,8 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # ✅ Add this if not present
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]      # ✅ your static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')         # ✅ output folder for collectstatic
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

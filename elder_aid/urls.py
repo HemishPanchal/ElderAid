@@ -19,8 +19,9 @@ from django.urls import path,include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-
+from elder_bookings.admin import admin_site
 urlpatterns = [
+    path('admin/',admin_site.urls),
     path('',views.home,name='home'),
     path('about/',views.about_view,name='about'),
     path('contacts/',views.contacts_view,name='contacts'),

@@ -10,6 +10,7 @@ class SignupForm(forms.ModelForm):
         super(SignupForm,self).__init__(*args,**kwargs)
         self.fields['uname'].label="Username"    
         self.fields['pwd'].label="Password"
+        self.fields['pwd'].widget = forms.PasswordInput()  # 👈 make input type="password"
 
 class LoginForm(forms.ModelForm):
     class Meta:
@@ -20,4 +21,5 @@ class LoginForm(forms.ModelForm):
         super(LoginForm,self).__init__(*args,**kwargs)
         self.fields['uname'].label="Username"    
         self.fields['pwd'].label="Password"
+        self.fields['pwd'].widget = forms.PasswordInput()  # 👈 make input type="password"
     
